@@ -1,0 +1,12 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    background-color: turquoise;
+    border: 2px solid blue;
+}
+
+#pdfPreview {
+    border: 1px solid gray;
+}

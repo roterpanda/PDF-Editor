@@ -20,6 +20,10 @@ function createWindow() {
 
 }
 
+function drawPDFPreview(doc) {
+    // to follow
+}
+
 async function handleFileOpen() {
     const { cancelled, filePaths } = await dialog.showOpenDialog(BrowserWindow.getFocusedWindow(), {
         filters: [{ name: 'PDF Files', extenstions: ['pdf'] }],
@@ -27,20 +31,10 @@ async function handleFileOpen() {
     });
     if (!cancelled && filePaths.length > 0) {
         const inputPath = filePaths[0];
-        const outputPath = path.join(__dirname, 'output_pdf');
 
         const pdfBytes = fs.readFileSync(inputPath);
         loadedPdfDoc = await PDFDocument.load(pdfBytes);
 
-
-
-
-        //const newPdfBytes = await pdfDoc.save();
-
-        //const outputFilePath = path.join(outputPath, 'output.pdf');
-        //fs.writeFileSync(outputFilePath, newPdfBytes);
-
-        //console.log('First page removed from PDF.');
         return filePaths[0];
 
     }
